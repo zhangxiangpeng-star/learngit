@@ -1,0 +1,98 @@
+
+#header{
+    height: 50px;
+    background-color: #333;
+}
+.logo{
+    display: inline;
+}
+.nav{
+    float: right;
+    margin-left: 60px;
+}
+.nav ul li {
+    float: right;
+    margin: 0 15px;
+}
+.nav ul li a{
+    color: #fff;
+}
+#main{ 
+    float: left; 
+    margin: 2px auto;
+    width: 1240px;
+    background-color: #dedede
+}
+.one{
+    width: 1200px;
+    height: 704px;
+    margin:20px auto;
+    padding:5px;
+    background: #fff;
+}
+p{
+    text-indent: 2em;
+}
+.two li{list-style-type: none;}
+.two{
+    width: 1200px;
+    height: 704px;
+    margin:20px auto;
+    padding:5px;
+    background: #fff;
+    
+}
+.three{
+    width: 1200px;
+    height: 1100px;
+    margin:20px auto;
+    padding:5px;
+    background: #fff;
+    padding: 2px;
+}
+.tu{
+    width: 320px;
+    text-align:center;
+    border: 2px solid orangered;
+    margin: 10px;
+}
+.four{width: 1200px;
+    height: 450px;
+    margin:20px auto;
+    padding:5px;
+    background: #fff;
+
+}
+th{
+    width: 400px;
+    background-color: #333;
+    color:#fff;
+}
+.list{
+    background: #ccc;
+}
+.five{width: 1200px;
+    height: 450px;
+    margin:20px auto;
+    padding:5px;
+    background: #fff;
+}
+.fie{
+    border: none;
+}
+.sub{
+    background-color: blue;
+    width:1100px;
+    color:#fff;
+    text-align:center;
+    margin: 2px auto;
+    border-radius: 5%
+}
+.footer{
+    width:100%;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}

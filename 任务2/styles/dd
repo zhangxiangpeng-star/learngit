@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.w{
+    width:1282px;
+    margin:auto;
+}
+
+}
+#header{
+    height: 60px;
+    margin: 10px auto;
+    background-color: #a50e0e;
+}
+
+.logo{
+    float: left;
+    width: 122px;
+    height: 40px;;
+    background-color:#000;}
+.nav{
+    float: right;
+    margin-left: 60px;
+}
+.nav ul li {
+    float: right;
+    margin: 0 15px;}
+
+.nav ul li a {
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;   
