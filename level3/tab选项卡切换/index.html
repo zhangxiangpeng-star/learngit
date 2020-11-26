@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            float: left;
+            height: 30px;
+            width: 100px;
+            text-align: center;
+            padding: 0,20px;
+            list-style: none;
+        }
+        .item{
+            display: none;
+            margin-left: 50px;
+        }
+        .right{
+            background-color: rgb(218, 40, 40);
+        }
+        .box1{
+            height: 50px;
+            width: 500px;
+            border:solid 2px rgb(19, 122, 37);
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="box1">
+            <ul>
+                <li class="right">一号标题</li>
+                <li>二号标题</li>
+                <li>三号标题</li>
+                <li>四号标题</li>
+            </ul>
+        </div>
+        <div class="box2">
+            <div class="item" style="display: block">我是一号内容</div>
+            <div class="item">我是二号内容</div>
+            <div class="item">我是三号内容</div>
+            <div class="item">我是四号内容</div>
+        </div>
+    </div>
+    <script>
+        var box1=document.querySelector(".box1");
+        var lis=box1.querySelectorAll("li");
+        var item=document.querySelectorAll(".item")
+        for(var i=0;i<lis.length;i++){
+            lis[i].setAttribute("index",i)
+            lis[i].onclick = function(){
+                for(var i=0;i<lis.length;i++){
+                    lis[i].className='';
+                }
+                this.className="right";
+                var index=this.getAttribute("index");
+                for(var i=0;i<item.length;i++){
+                    item[i].style.display="none"
+                }
+                item[index].style.display="block"
+            }
+        }
+    </script>
+</body>
+</html>

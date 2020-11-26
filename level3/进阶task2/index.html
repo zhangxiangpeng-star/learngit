@@ -1,0 +1,139 @@
+<!DOCTYPE>
+ <html>
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         span {
+             display: inline-block;
+             margin: 12px 5px;
+             padding: 2px 10px;
+             background-color: rgb(216, 12, 148);
+             cursor: pointer;
+         }
+     </style>
+   </head>
+ <body>
+           
+     <input type="text" id="text">
+     <button id="left-in">左侧入</button>
+     <button id="right-in">右侧入</button>
+     <button id="left-out">左侧出</button>
+     <button id="right-out">右侧出</button>
+     <button id="sort">排序</button>
+
+     <div id="queue"></div>
+
+ <script type="text/javascript">
+
+ function leftIn(queue) {
+     var text = document.getElementById("text").value;
+     if(check(text)) {
+         var span = document.createElement("span");
+         span.style.height =text;
+         var List = queue.childNodes;
+         if(List.length>50){
+             alert("队列元素数量最多为50个");
+         }
+         else{
+         queue.insertBefore(span,List[0]);
+        }
+     }
+ }
+ function rightIn(queue) {
+     var text = document.getElementById("text").value;
+     if(check(text)) {
+         var span = document.createElement("span"); 
+         span.style.height =text; 
+         var List = queue.childNodes; 
+         if(List.length>50){
+             alert("队列元素数量最多为50个");
+         }
+         else{
+         queue.appendChild(span);}
+     }    
+ }
+ 
+ function leftOut(queue) {
+     var childs = queue.childNodes;   //childNodes获得元素的子节点集合：
+     alert(childs[0].innerHTML);
+     queue.removeChild(childs[0]);
+ }
+ 
+
+ function rightOut(queue) {
+     var childs = queue.childNodes;
+     alert(childs[childs.length-1].innerHTML);
+     queue.removeChild(childs[childs.length-1]);
+ }
+ 
+ //输入验证
+ function check(text) {
+     reg=/^[-+]?\d*$/; //整数的正则表达式
+     if(text == "") {
+         alert("你的输入不能为空！");
+         return false;
+     }
+     else if(!reg.test(text)) {
+         alert("请输入整数（范围：10-100）");
+        }
+     else if(reg.test(text) && (text<10 || text>100)) {
+        alert("只能输入10-100内的实数！");
+         return false;
+     }
+     else{
+        return true;
+     } 
+ }
+     
+ function emptyInput(input) {
+    input.value = "";
+}
+//冒泡排序
+function bubbleSort(queue) {
+    var childs = queue.childNodes;  
+    for(var i=0;i<childs.length;i++) {
+        for(var j=0;j<childs.length-1;j++) {
+            if(childs[j].style.height>childs[j+1].style.height) {
+                var height = childs[j].style.height;
+                childs[j].style.height = childs[j+1].style.height;
+                childs[j+1].style.height = height;
+            }
+        }
+    }
+}
+ function init() {
+     var queue = document.getElementById("queue");
+     var input = document.getElementById("text")
+     document.getElementById("left-in").onclick = function() {
+         leftIn(queue);
+         emptyInput(input)
+     };
+     document.getElementById("right-in").onclick = function() {
+         rightIn(queue);
+         emptyInput(input)
+     };
+     document.getElementById("left-out").onclick = function() {
+         leftOut(queue);
+     };
+     document.getElementById("right-out").onclick = function() {
+         rightOut(queue);
+     };
+     document.getElementById("sort").onclick = function() {
+        bubbleSort(queue);
+    };
+    //点击队列中任何一个元素，则该元素会被从队列中删除
+     document.getElementById("queue").onclick = function(aaa) {
+        aaa = aaa || window.event;
+         var tar = aaa.target || aaa.srcElement;
+         var tagName = tar.tagName;　
+          if( tagName == 'SPAN' ) {
+             queue.removeChild(tar);　
+          }
+     }
+ }
+ init();
+ </script>
+ </body>
+ </html>

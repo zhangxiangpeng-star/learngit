@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+	    display:flex;
+        }
+    span {
+	    width:50px;
+	    height:70px;
+	    border:solid 1px black;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <span id="box1">
+                    目录1
+                    <p style="display: none;">目录1</p>
+                </span>
+        <span id="box2">
+            目录2
+                   <p style="display: none;">目录2</p>
+                </span>
+        <span id="box3">
+            目录3
+                     <p style="display: none;">目录3</p>
+                </span>
+        <span id="box4">
+            目录4
+                         <p style="display: none;">目录4</p>
+                </span>
+    </div>
+    <script>
+        var span = document.getElementsByTagName('span');
+        for (var i = 0; i < span.length; i++) {
+        span[i].onmouseover = function() {
+            var children = this.children[0];
+            this.style.width = 100 + 'px';
+            this.style.background = 'blue';
+            children.style.display = 'block'
+            this.onmouseout = function() {
+                this.style.width = 50 + 'px'
+                this.style.background = ''
+                children.style.display = 'none'
+        }
+    }
+} 
+    </script>
+</body>
+</html>

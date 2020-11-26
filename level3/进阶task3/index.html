@@ -1,0 +1,73 @@
+<!DOCTYPE>
+ <html>
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         span {
+            display: inline-block;
+             margin: 12px 5px;
+             padding: 2px 10px;
+             height: 25px;
+             background-color: rgb(216, 12, 148);
+             line-height: 30px;
+             cursor: pointer;
+             
+         } 
+         #aaa {
+             float: left;
+         }
+     </style>
+   </head>
+ <body>
+<div>
+     <textarea id="inputValue" rows = "4" colos = "50"></textarea>
+     <button id="right-in">插入</button>
+     <input type=text id="inquiry_input">
+	<button id="inquiry" class="btn">查询</button>
+     <div id="queue"></div>
+ <script type="text/javascript">
+
+ function rightIn(queue) {
+     var text = document.getElementById("inputValue").value;
+   
+         var span = document.createElement("span")
+         span.innerHTML = text;   
+         queue.appendChild(span);
+      
+ }
+ //查询
+ function inquiry(){
+	var queue = document.getElementById("queue").children;
+	var len = queue.length;
+	var inquiryInput = document.getElementById("inquiry_input").value;
+	var reg = eval("/"+inquiryInput+"/g");
+	for(var i = 0;i<len;i++){
+		var str = queue[i].innerHTML.toString();
+		var str = queue[i].innerHTML.replace(reg,"<div id=aaa style='background-color: rgb(72, 25, 133);'>" + inquiryInput + "</div>");
+		queue[i].innerHTML = str;
+	}
+	//style='color:blue;
+}
+
+ function init() {
+     var queue = document.getElementById("queue");
+     document.getElementById("right-in").onclick = function() {
+         rightIn(queue);
+     document.getElementById("inquiry").onclick = inquiry;
+     };
+    //点击队列中任何一个元素，则该元素会被从队列中删除
+     document.getElementById("queue").onclick = function(aaa) {
+        aaa = aaa || window.event;
+         var tar = aaa.target || aaa.srcElement;
+         var tagName = tar.tagName;　
+          if( tagName == 'SPAN' ) {
+             queue.removeChild(tar);　
+          }
+     }
+ }
+ init();
+ </script>
+ </body>
+ </html>
